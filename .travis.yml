@@ -12,13 +12,13 @@ script:
   #-- --coverage untuk keluar setelah sekali jalan # -- --coverage
 
 after_success:
-  - docker build -t richardsutiono/multi-client ./client
-  - docker build -t richardsutiono/multi-nginx ./nginx
-  - docker build -t richardsutiono/multi-server ./server
-  - docker build -t richardsutiono/multi-worker ./worker
+  - docker build -t richardsutiono12/multi-client ./client
+  - docker build -t richardsutiono12/multi-nginx ./nginx
+  - docker build -t richardsutiono12/multi-server ./server
+  - docker build -t richardsutiono12/multi-worker ./worker
   # Login to docker CLI/hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push richardsutiono/multi-client
-  - docker push richardsutiono/multi-nginx
-  - docker push richardsutiono/multi-server
-  - docker push richardsutiono/multi-worker
+  - docker push richardsutiono12/multi-client
+  - docker push richardsutiono12/multi-nginx
+  - docker push richardsutiono12/multi-server
+  - docker push richardsutiono12/multi-worker
