@@ -16,3 +16,9 @@ after_success:
   - docker build -t richardsutiono/multi-nginx ./nginx
   - docker build -t richardsutiono/multi-server ./server
   - docker build -t richardsutiono/multi-worker ./worker
+  # Login to docker CLI/hub
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push richardsutiono/multi-client
+  - docker push richardsutiono/multi-nginx
+  - docker push richardsutiono/multi-server
+  - docker push richardsutiono/multi-worker
