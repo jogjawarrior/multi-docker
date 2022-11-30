@@ -1,0 +1,18 @@
+sudo: required
+language: generic
+services: 
+  - docker
+
+before_install: 
+  - docker build -t richardsutiono/react-test -f ./client/Dockerfile.dev ./client
+  # Berarti ambil Dockerfile.dev dari ./client, dan build context juga dari ./client 
+
+script: 
+  - docker run -e CI=true richardsutiono/react-test npm run test
+  #-- --coverage untuk keluar setelah sekali jalan # -- --coverage
+
+after_success:
+  - docker build -t richardsutiono/multi-client ./client
+  - docker build -t richardsutiono/multi-nginx ./nginx
+  - docker build -t richardsutiono/multi-server ./server
+  - docker build -t richardsutiono/multi-worker ./worker
