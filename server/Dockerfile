@@ -1,6 +1,6 @@
 FROM node:14.14.0-alpine
 USER node
-WORKDIR '/app'
+WORKDIR '/home/node/app'
 COPY --chown=node:node ./package.json ./
 COPY --chown=node:node ./.dockerignore ./
 RUN npm install
