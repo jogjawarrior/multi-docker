@@ -2,7 +2,7 @@ version: "3"
 services:
   client:
     image: "richardsutiono12/multi-client"
-    mem_limit: 128m
+    mem_limit: 128m #Kasi limit untuk RAM di AWS (kayaknya limit juga untuk server local sih, gk harus AWS)
     hostname: client
   server: #diganti jadi api juga bisa sepertinya
     image: "richardsutiono12/multi-server"
