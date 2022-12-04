@@ -22,3 +22,25 @@ after_success:
   - docker push richardsutiono12/multi-nginx
   - docker push richardsutiono12/multi-server
   - docker push richardsutiono12/multi-worker
+
+
+  # Kita gk push postgres atau redis karena kita mau pakai servicenya AWS aja
+  # Ada namanya AWS Elastic Cache dan AWS Relational Database Service
+  # Lebih disarankan pakai 2 di atas sih kalau deploy di AWS. Soalnya service db di atas udah disetting oleh tim AWS
+  # Biar lebih aman, mantap, scaleable, dsb
+
+
+  # Kalau misal pakai image postgres/redis, kita harus setting + maintenance sendiri
+
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-1"
+  app: "multi-docker"
+  env: "Multidocker-env"
+  bucket: "elasticbeanstalk-ap-northeast-1-622384535228"
+  bucket-path: "multi-docker" #bebas kayaknya. Gk harus persis dengan appname
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
