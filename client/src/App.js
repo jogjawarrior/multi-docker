@@ -13,7 +13,7 @@ function App() {
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             <code>
-              Fib Calculator
+              Fib Calculator 2
             </code>
           </p>
           <a
